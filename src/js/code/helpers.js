@@ -1,3 +1,4 @@
+import Ship from './ships'
 export const SHIP_TYPE = [
     'Carrier',
     'Battleship',
@@ -12,4 +13,12 @@ export const SHIP_LENGTH = {
     Cruiser: 3,
     Submarine: 3,
     Destroyer: 2,
+}
+
+export function createFleet(type) {
+    const fleet = {}
+
+    type.forEach((el) => (fleet[el] = Ship(el)))
+
+    return fleet
 }
