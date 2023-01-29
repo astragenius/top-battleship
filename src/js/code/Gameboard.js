@@ -18,6 +18,8 @@ export const GameBoard = () => {
 
         return [x, y]
     }
+    const checkPos = (lenght, x, y, position) => {}
+
     const placeShip = (ship, x0, y0) => {
         const position = ship.getPosition()
         for (let i = 0; i < ship.length; i++) {
@@ -26,5 +28,5 @@ export const GameBoard = () => {
         }
     }
 
-    return { getBoard, recieveAttack, placeShip }
+    return { getBoard, recieveAttack, placeShip, checkPos }
 }
