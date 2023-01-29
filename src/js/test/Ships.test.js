@@ -11,7 +11,7 @@ describe('Testing of the Ship factory function', () => {
             expect(ship.length).toBe(5)
         })
         test('test default hits', () => {
-            expect(ship.hits).toStrictEqual([false, false, false, false, false])
+            expect(ship.hits).toStrictEqual([null, null, null, null, null])
         })
     })
 
@@ -19,11 +19,11 @@ describe('Testing of the Ship factory function', () => {
         const ship = Ship('Battleship')
 
         test('Test default return value of getHits', () => {
-            expect(ship.getHit()).toStrictEqual([false, false, false, false])
+            expect(ship.getHit()).toStrictEqual([null, null, null, null])
         })
         test('Test return value when Ship gets Hit', () => {
             ship.hit(2)
-            expect(ship.getHit()).toStrictEqual([false, false, true, false])
+            expect(ship.getHit()).toStrictEqual([null, null, true, null])
         })
         test('Test when hit index is bigger than the ship lenght', () => {
             expect(ship.hit(8)).toBe('Out of range')
@@ -45,6 +45,17 @@ describe('Testing of the Ship factory function', () => {
             ship.hit(1)
             ship.hit(2)
             expect(ship.isSunk()).toBe(true)
+        })
+    })
+
+    describe('Testing changing direction method', () => {
+        const ship = Ship('Carrier')
+        test('Test default position, getPosition method', () => {
+            expect(ship.getPosition()).toBe('horizontal')
+        })
+        test('test change postion method', () => {
+            ship.changePosition()
+            expect(ship.getPosition()).toBe('vertical')
         })
     })
 })
