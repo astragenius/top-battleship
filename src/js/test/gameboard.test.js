@@ -70,7 +70,6 @@ describe('Test placeShip method - vertical', () => {
         expect(pos).toEqual({ ship, index: 3 })
     })
 })
-describe.skip('Test placeShip method - vertical', () => {})
 
 describe.skip('Test recieve attack method on enemy gameboard', () => {
     const player1 = GameBoard()

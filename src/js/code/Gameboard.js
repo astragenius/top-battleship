@@ -18,15 +18,34 @@ export const GameBoard = () => {
 
         return [x, y]
     }
-    const checkPos = (lenght, x, y, position) => {}
+    const checkPos = (lenght, x0, y0, position) => {
+        let list = []
+
+        for (let i = 0; i < lenght; i++) {
+            const [x, y] = coordAdjust(x0, y0, i, position)
+            if (x < 10 && y < 10) {
+                list.push(gameboard[x][y])
+            } else {
+                return false
+            }
+        }
+
+        return list.every((cell) => cell === null)
+    }
 
     const placeShip = (ship, x0, y0) => {
         const position = ship.getPosition()
-        for (let i = 0; i < ship.length; i++) {
-            const [x, y] = coordAdjust(x0, y0, i, position)
-            gameboard[x][y] = { ship, index: i }
+        const validPos = checkPos(ship.lenght, x0, y0, position)
+        if (validPos) {
+            for (let i = 0; i < ship.length; i++) {
+                const [x, y] = coordAdjust(x0, y0, i, position)
+                gameboard[x][y] = { ship, index: i }
+            }
+            return validPos
+        } else {
+            return validPos
         }
     }
 
-    return { getBoard, recieveAttack, placeShip, checkPos }
+    return { getBoard, recieveAttack, placeShip }
 }
