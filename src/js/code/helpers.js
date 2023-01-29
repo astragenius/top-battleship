@@ -22,3 +22,5 @@ export function createFleet(type) {
 
     return fleet
 }
+const random = (size = 10) => Math.floor(Math.random() * size)
+export const randomCoords = (size = 10) => [random(size), random(size)]
