@@ -1,4 +1,4 @@
-import { SHIP_TYPE } from './helpers'
+import { randomCoords, SHIP_TYPE } from './helpers'
 export const GameBoard = () => {
     let gameboard = Array(10)
         .fill(null)
@@ -51,5 +51,26 @@ export const GameBoard = () => {
         }
     }
 
-    return { getBoard, recieveAttack, placeShip, checkPlacedShips }
+    const placeShipAutomatic = (ship) => {
+        const [x, y] = randomCoords()
+        const randomDirection = Math.random() > 0.5
+        if (randomDirection) ship.changePosition()
+        const shipPlace = placeShip(ship, x, y)
+        if (!shipPlace) placeShipAutomatic(ship)
+    }
+
+    const resetGameboard = () => {
+        gameboard = Array(10)
+            .fill(null)
+            .map(() => Array(10).fill(null))
+        placedShip = []
+    }
+
+    return {
+        getBoard,
+        recieveAttack,
+        placeShip,
+        checkPlacedShips,
+        resetGameboard,
+    }
 }
