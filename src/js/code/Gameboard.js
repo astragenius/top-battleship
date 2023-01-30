@@ -58,6 +58,7 @@ export const GameBoard = () => {
         const shipPlace = placeShip(ship, x, y)
         if (!shipPlace) placeShipAutomatic(ship)
     }
+    const autoPlaceAllShips = (ships) => {}
 
     const resetGameboard = () => {
         gameboard = Array(10)
@@ -72,5 +73,6 @@ export const GameBoard = () => {
         placeShip,
         checkPlacedShips,
         resetGameboard,
+        autoPlaceAllShips,
     }
 }

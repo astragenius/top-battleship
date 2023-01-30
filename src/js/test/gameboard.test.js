@@ -98,6 +98,17 @@ describe('Test method to check if all ships are placed', () => {
     })
 })
 
+describe.skip('Test autoPlaceAllShips method', () => {
+    const board = GameBoard()
+    const player = Player('Human')
+    const fleet = player.getFleet()
+    board.autoPlaceAllShips(fleet)
+    const check = board.checkPlacedShips()
+    test('check if all ships are placed', () => {
+        expect(check).toBe(true)
+    })
+})
+
 describe.skip('Test recieve attack method on enemy gameboard', () => {
     const player1 = GameBoard()
     const player2 = GameBoard()
