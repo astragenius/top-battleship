@@ -1,11 +1,13 @@
-import Ship from './ships'
-
+import { SHIP_TYPE } from './helpers'
 export const GameBoard = () => {
     let gameboard = Array(10)
         .fill(null)
         .map(() => Array(10).fill(null))
 
+    let placedShip = []
     const getBoard = () => gameboard
+    const checkPlacedShips = () => placedShip.length === SHIP_TYPE.length
+
     const recieveAttack = (x, y) => {}
     const coordAdjust = (x0, y0, i, position) => {
         let x = x0 + i
@@ -36,16 +38,18 @@ export const GameBoard = () => {
     const placeShip = (ship, x0, y0) => {
         const position = ship.getPosition()
         const validPos = checkPos(ship.lenght, x0, y0, position)
+
         if (validPos) {
             for (let i = 0; i < ship.length; i++) {
                 const [x, y] = coordAdjust(x0, y0, i, position)
                 gameboard[x][y] = { ship, index: i }
             }
+            placedShip.push(ship)
             return validPos
         } else {
             return validPos
         }
     }
 
-    return { getBoard, recieveAttack, placeShip }
+    return { getBoard, recieveAttack, placeShip, checkPlacedShips }
 }

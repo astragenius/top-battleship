@@ -71,6 +71,33 @@ describe('Test placeShip method - vertical', () => {
     })
 })
 
+describe('Test method to check if all ships are placed', () => {
+    const board = GameBoard()
+    const carrier = Ship('Carrier')
+    const battleship = Ship('Battleship')
+    const cruiser = Ship('Cruiser')
+    const submarine = Ship('Submarine')
+    const destroyer = Ship('Destroyer')
+
+    test('Test when only 1 ship is placed', () => {
+        board.placeShip(carrier, 0, 0)
+        const check = board.checkPlacedShips()
+        expect(check).toBe(false)
+    })
+    test('Test when 4 ships are placed', () => {
+        board.placeShip(battleship, 1, 0)
+        board.placeShip(cruiser, 2, 0)
+        board.placeShip(submarine, 3, 0)
+        const check = board.checkPlacedShips()
+        expect(check).toBe(false)
+    })
+    test('Test when all ships are placed', () => {
+        board.placeShip(destroyer, 4, 0)
+        const check = board.checkPlacedShips()
+        expect(check).toBe(true)
+    })
+})
+
 describe.skip('Test recieve attack method on enemy gameboard', () => {
     const player1 = GameBoard()
     const player2 = GameBoard()

@@ -7,7 +7,9 @@ const Ship = (type) => {
     let position = 'horizontal'
 
     const getHit = () => hits
-    const getPosition = () => position
+    const getPosition = () => {
+        return position
+    }
     const changePosition = () => {
         position === 'horizontal'
             ? (position = 'vertical')
