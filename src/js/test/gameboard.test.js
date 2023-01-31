@@ -1,5 +1,6 @@
 import { GameBoard } from '../code/Gameboard'
 import Ship from '../code/ships'
+import { Player } from '../code/Player'
 describe('Test default GameBoard (emty)', () => {
     const board = GameBoard()
 
@@ -98,13 +99,13 @@ describe('Test method to check if all ships are placed', () => {
     })
 })
 
-describe.skip('Test autoPlaceAllShips method', () => {
+describe('Test autoPlaceAllShips method', () => {
     const board = GameBoard()
     const player = Player('Human')
     const fleet = player.getFleet()
     board.autoPlaceAllShips(fleet)
     const check = board.checkPlacedShips()
-    test('check if all ships are placed', () => {
+    test.skip('check if all ships are placed', () => {
         expect(check).toBe(true)
     })
 })
