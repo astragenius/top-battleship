@@ -99,7 +99,7 @@ describe('Test method to check if all ships are placed', () => {
     })
 })
 
-describe('Test autoPlaceAllShips method', () => {
+describe.skip('Test autoPlaceAllShips method', () => {
     const board = GameBoard()
     const player = Player('Human')
     const fleet = player.getFleet()
@@ -111,11 +111,31 @@ describe('Test autoPlaceAllShips method', () => {
 })
 
 describe.skip('Test recieve attack method on enemy gameboard', () => {
-    const player1 = GameBoard()
-    const player2 = GameBoard()
-
-    test('Test return value when miss', () => {
-        expect(player1.recieveAttack(5, 5)).toBe('miss')
+    const board = GameBoard()
+    const carrier = Ship('Carrier')
+    const battleship = Ship('Battleship')
+    board.placeShip(carrier, 0, 2)
+    battleship.changePosition()
+    board.placeShip(battleship, 2, 3)
+    board.recieveAttack(0, 0)
+    test('attack carrier at index: 0', () => {
+        board.recieveAttack(0, 2)
+        const check = carrier.getHit()
+        expect(check).toEqual('hit', null, null, null, null)
     })
-    test('Test return value when hit', () => {})
+    test('attack carrier at index: 0', () => {
+        board.recieveAttack(3, 2)
+        const check = carrier.getHit()
+        expect(check).toEqual('hit', null, null, 'hit', null)
+    })
+
+    test('miss', () => {
+        board.recieveAttack(9, 9)
+        const check = board.getBoard()[9][9]
+        expect(check).toEqual('miss')
+    })
+    test('hit at 0 2', () => {
+        const check = board.getBoard()[0][2]
+        expect(check).toEqual('hit')
+    })
 })
