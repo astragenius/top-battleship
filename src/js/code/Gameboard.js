@@ -8,7 +8,16 @@ export const GameBoard = () => {
     const getBoard = () => gameboard
     const checkPlacedShips = () => placedShip.length === SHIP_TYPE.length
 
-    const recieveAttack = (x, y) => {}
+    const recieveAttack = (x, y) => {
+        if (gameboard[x][y] === null) {
+            gameboard[x][y] = 'miss'
+        } else if (gameboard[x][y].ship) {
+            gameboard[x][y].ship.hit(gameboard[x][y].index)
+            gameboard[x][y] = false
+        }
+
+        return gameboard[x][y]
+    }
     const coordAdjust = (x0, y0, i, position) => {
         let x = x0 + i
         let y = y0
@@ -25,7 +34,7 @@ export const GameBoard = () => {
 
         for (let i = 0; i < lenght; i++) {
             const [x, y] = coordAdjust(x0, y0, i, position)
-            console.log(x, y)
+            //console.log(x, y)
             if (x < 10 && y < 10) {
                 list.push(gameboard[x][y])
             } else {
@@ -39,7 +48,7 @@ export const GameBoard = () => {
     const placeShip = (ship, x0, y0) => {
         const position = ship.getPosition()
         const validPos = checkPos(ship.lenght, x0, y0, position)
-        console.log(validPos)
+        //console.log(validPos)
         if (validPos) {
             for (let i = 0; i < ship.length; i++) {
                 const [x, y] = coordAdjust(x0, y0, i, position)
