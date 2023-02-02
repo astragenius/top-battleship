@@ -75,6 +75,7 @@ export const GameBoard = () => {
             placeShipAutomatic(ships[ship])
         }
     }
+    const checkShipsSunk = () => placedShip.every((ship) => ship.isSunk())
 
     const resetGameboard = () => {
         gameboard = Array(10)
@@ -90,5 +91,6 @@ export const GameBoard = () => {
         checkPlacedShips,
         resetGameboard,
         autoPlaceAllShips,
+        checkShipsSunk,
     }
 }

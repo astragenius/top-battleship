@@ -139,3 +139,21 @@ describe('Test recieve attack method on enemy gameboard', () => {
         expect(check).toEqual(false)
     })
 })
+describe('Test if ship is sunk or not', () => {
+    const board = GameBoard()
+    const submarine = Ship('Submarine')
+    board.placeShip(submarine, 2, 0)
+    board.recieveAttack(2, 0)
+    board.recieveAttack(3, 0)
+
+    test('test if ship is sunk by 2 hits', () => {
+        const check = board.checkShipsSunk()
+        expect(check).toEqual(false)
+    })
+    test('test if ship is sunk by 5 hits', () => {
+        board.recieveAttack(4, 0)
+        board.recieveAttack(0, 5)
+        const check = board.checkShipsSunk()
+        expect(check).toEqual(true)
+    })
+})
