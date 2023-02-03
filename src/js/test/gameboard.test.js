@@ -152,7 +152,6 @@ describe('Test if ship is sunk or not', () => {
     })
     test('test if ship is sunk by 5 hits', () => {
         board.recieveAttack(4, 0)
-        board.recieveAttack(0, 5)
         const check = board.checkShipsSunk()
         expect(check).toEqual(true)
     })
