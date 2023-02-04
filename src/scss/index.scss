@@ -8,8 +8,12 @@
 
 @import './base/reset';
 @import './base/typography';
+@import './base/basic';
+@import './base/utilClasses';
 
 @import 'layout/navigation';
 @import 'layout/grid';
 @import 'layout/header';
 @import 'layout/footer';
+
+@import './components/buttons';

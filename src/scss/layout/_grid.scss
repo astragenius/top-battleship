@@ -1,0 +1,33 @@
+.grid {
+    
+
+    display: grid;
+    border: 1px solid black;
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+    //gap: 1px;
+    
+}
+.game__grid {
+  aspect-ratio: 1;
+  
+}
+.cell {
+  
+    border: 1px solid black;
+    
+
+}
+
+.gamefield__container {
+
+    @include breakpoint-up('very-small') {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 5rem; 
+    }
+  
+ 
+    
+}
+
