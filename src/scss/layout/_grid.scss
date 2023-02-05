@@ -2,22 +2,36 @@
     
 
     display: grid;
-    border: 1px solid black;
+    border: 1px solid #9ca3af;
     grid-template-rows: repeat(10, 1fr);
     grid-template-columns: repeat(10, 1fr);
-    //gap: 1px;
+    
     
 }
 .game__grid {
   aspect-ratio: 1;
+  border-style: solid;
+  border-color: #c2c2c2 #979797 #7e7e7e;
+  border-width: 8px;
   
 }
-.cell {
-  
-    border: 1px solid black;
+.enemy__grid .cell {
+    position: relative;
+    box-shadow: 0 0 5px #67ff9a;
+    border: 1px solid #0ffd5e;
+}
+.enemy__grid .cell:hover::before {
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1;
+   
+    content: url(/src/assets/img/target_9.svg);
     
-
 }
+.player__grid .cell {
+    border: 1px solid rgba(44,195,255,.7254901960784313);
+}
+
 
 .gamefield__container {
 
@@ -26,8 +40,21 @@
           grid-template-columns: repeat(2, 1fr);
           gap: 5rem; 
     }
-  
+    
+    h2 {
+        font-size: clamp(1.50rem, calc(1.33rem + 0.87vw), 2.00rem);
+        text-align: center;
+        -webkit-margin-after: 1rem;
+                margin-block-end: 1rem;
+    }
  
     
+}
+
+.player__grid {
+    background: radial-gradient(#09244b,#0b3b5c,#245c7c);
+}
+.enemy__grid {
+    background: radial-gradient(#000,#071d02,#28440a);
 }
 

@@ -1,10 +1,39 @@
+.header {
+    -webkit-margin-before: 2rem;
+            margin-block-start: 2rem;
+    h1 {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: clamp(1.50rem, calc(0.98rem + 2.61vw), 3.00rem);
+        
+    }
+}
 .header__main {
     display: flex;
     justify-content: space-between;
-
-    border: 1px solid black;
+    padding: 1rem;
+    background: radial-gradient(#09244b,#0b3b5c,#245c7c);
+    border-style: solid;
+    border-color: #c2c2c2 #979797 #7e7e7e;
+    border-width: 8px;
+    color: #e2dede
 }
 
+.stats__name {
+    font-size: clamp(0.5rem, calc(0.65rem + 1.74vw), 2.00rem);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.player_points {
+    //display: flex;
+    font-size: 1rem;
+    gap: 1rem;
+  
+}
 .button__container {
-   
+    
+    display: grid;
+    place-content: center;
+    gap: 0.5em;
 }

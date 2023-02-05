@@ -3,4 +3,25 @@
     border: none;
     width: 100%;
     cursor: pointer;
+    font-size: 1rem;
+    padding: 0.3em 1.2em;
+    border-radius: 3px;
+    color: #f8f8f8;
+    text-transform: uppercase;
+        
+}
+.btn__new-game {
+    background-color: #0ffd5e;
+}
+
+.btn__new-game:hover {
+    transition: 300ms;
+    background-color: #67ff9a;
+}
+.btn__reset-game {
+    background-color: #dc2626;
+}
+.btn__reset-game:hover {
+    transition: 300ms;
+    background-color: #f87171;
 }
