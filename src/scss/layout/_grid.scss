@@ -28,9 +28,25 @@
     content: url(/src/assets/img/target_9.svg);
     
 }
+
+
 .player__grid .cell {
     border: 1px solid rgba(44,195,255,.7254901960784313);
 }
+
+.player__grid .cell.player__ship {
+    background-color: #0ffd5e;
+}
+.enemy__grid .cell.enemy__hit,
+.player__grid .cell.player__hit {
+    background-color: #b91c1c;
+}
+.enemy__grid .cell.enemy__miss,
+.player__grid .cell.player__miss {
+    background-color: #71717a;
+}
+
+
 
 
 .gamefield__container {
