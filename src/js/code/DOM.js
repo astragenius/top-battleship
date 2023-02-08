@@ -10,12 +10,14 @@ const renderGameboard = (() => {
     const renderGrid = (container, gameboard, type) => {
         resetGrid(container)
         const board = gameboard.getBoard()
-        const lenght = board.lenght
+        const length = board.length
+        console.log(container)
         let grid = ''
 
-        for (let i = 0; i < lenght; i++) {
-            for (let j = 0; j < lenght; j++) {
+        for (let i = 0; i < length; i++) {
+            for (let j = 0; j < length; j++) {
                 let status = board[i][j]
+
                 if (status === null) {
                     status = ''
                 } else if (status.ship) {
@@ -29,7 +31,8 @@ const renderGameboard = (() => {
                 grid += renderCell(i, j, status)
             }
         }
-        container.textContent = grid
+
+        container.innerHTML = grid
     }
 
     return { renderGrid }

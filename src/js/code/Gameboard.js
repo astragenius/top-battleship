@@ -34,7 +34,7 @@ export const GameBoard = () => {
 
         for (let i = 0; i < lenght; i++) {
             const [x, y] = coordAdjust(x0, y0, i, position)
-            //console.log(x, y)
+
             if (x < 10 && y < 10) {
                 list.push(gameboard[x][y])
             } else {
@@ -46,6 +46,7 @@ export const GameBoard = () => {
     }
 
     const placeShip = (ship, x0, y0) => {
+        //console.log(ship)
         const position = ship.getPosition()
         const validPos = checkPos(ship.lenght, x0, y0, position)
         //console.log(validPos)
