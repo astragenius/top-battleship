@@ -29,6 +29,15 @@ const GameHandler = () => {
             EnemyPlayer.getType()
         )
     }
+    const addEventsToGrid = () => {
+        DOMelements.enemyGrid.addEventListener('click', attack)
+    }
+
+    const attack = (e) => {
+        console.log(e.target)
+        console.log(e.target.dataset.x)
+        console.log(e.target.dataset.y)
+    }
 
     const autoPlace = () => {
         player1Board.resetGameboard()
@@ -36,4 +45,20 @@ const GameHandler = () => {
         player1Board.autoPlaceAllShips(player1.getFleet())
         enemyBoard.autoPlaceAllShips(EnemyPlayer.getFleet())
     }
+
+    const startGame = () => {
+        addEventsToGrid()
+        resetGame()
+        autoPlace()
+        renderGrids()
+    }
+
+    return {
+        startGame,
+        autoPlace,
+        renderGrids,
+        resetGame,
+    }
 }
+
+export default GameHandler
