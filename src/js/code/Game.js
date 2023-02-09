@@ -29,4 +29,11 @@ const GameHandler = () => {
             EnemyPlayer.getType()
         )
     }
+
+    const autoPlace = () => {
+        player1Board.resetGameboard()
+        enemyBoard.resetGameboard()
+        player1Board.autoPlaceAllShips(player1.getFleet())
+        enemyBoard.autoPlaceAllShips(EnemyPlayer.getFleet())
+    }
 }
