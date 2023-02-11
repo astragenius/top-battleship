@@ -136,7 +136,7 @@ describe('Test recieve attack method on enemy gameboard', () => {
     })
     test('hit at 0 2', () => {
         const check = board.getBoard()[0][2]
-        expect(check).toEqual(false)
+        expect(check).toEqual(true)
     })
 })
 describe('Test if ship is sunk or not', () => {

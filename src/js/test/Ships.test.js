@@ -25,9 +25,6 @@ describe('Testing of the Ship factory function', () => {
             ship.hit(2)
             expect(ship.getHit()).toStrictEqual([null, null, true, null])
         })
-        test('Test when hit index is bigger than the ship lenght', () => {
-            expect(ship.hit(8)).toBe('Out of range')
-        })
     })
 
     describe('Testing if Ship is sunk', () => {

@@ -8,5 +8,5 @@ export const Player = (type) => {
     const resetFleet = () => (fleet = createFleet(SHIP_TYPE))
     const attack = (x, y, enemyBoard) => enemyBoard.recieveAttack(x, y)
 
-    return { getType, getFleet, resetFleet }
+    return { getType, getFleet, resetFleet, attack }
 }

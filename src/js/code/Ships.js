@@ -16,7 +16,6 @@ const Ship = (type) => {
             : (position = 'horizontal')
     }
     const hit = (index) => {
-        if (index > length) return 'Out of range'
         hits[index] = true
     }
     const isSunk = () => {

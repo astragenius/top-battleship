@@ -30,13 +30,14 @@ const GameHandler = () => {
         )
     }
     const addEventsToGrid = () => {
-        DOMelements.enemyGrid.addEventListener('click', attack)
+        DOMelements.enemyGrid.addEventListener('click', attackPlayer)
     }
 
-    const attack = (e) => {
-        console.log(e.target)
-        console.log(e.target.dataset.x)
-        console.log(e.target.dataset.y)
+    const attackPlayer = (e) => {
+        const x = e.target.dataset.x
+        const y = e.target.dataset.y
+
+        console.log(player1.attack(x, y, enemyBoard))
     }
 
     const autoPlace = () => {
