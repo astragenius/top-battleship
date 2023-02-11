@@ -44,6 +44,18 @@ const GameHandler = () => {
 
             renderGrids()
         }
+        if (player1Board.checkShipsSunk() || enemyBoard.checkShipsSunk()) {
+            let winner = ''
+            if (player1Board.checkShipsSunk()) {
+                console.log('CPU Winns')
+                winner = 'Enemy winns the game'
+            } else if (enemyBoard.checkShipsSunk()) {
+                console.log('player winns')
+                winner = 'Player Winns the game'
+            }
+
+            DOMelements.enemyGrid.removeEventListener('click', attackPlayer)
+        }
 
         //console.log(player1.attack(x, y, enemyBoard))
     }
