@@ -34,10 +34,18 @@ const GameHandler = () => {
     }
 
     const attackPlayer = (e) => {
-        const x = e.target.dataset.x
-        const y = e.target.dataset.y
+        const cell = e.target
+        const x = cell.dataset.x
+        const y = cell.dataset.y
+        const board = enemyBoard.getBoard()[x][y]
+        if (board !== 'hit' && board !== 'miss') {
+            player1.attack(x, y, enemyBoard)
+            EnemyPlayer.autoAttack(player1Board)
 
-        console.log(player1.attack(x, y, enemyBoard))
+            renderGrids()
+        }
+
+        //console.log(player1.attack(x, y, enemyBoard))
     }
 
     const autoPlace = () => {

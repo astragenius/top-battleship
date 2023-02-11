@@ -13,7 +13,7 @@ export const GameBoard = () => {
             gameboard[x][y] = 'miss'
         } else if (gameboard[x][y].ship) {
             gameboard[x][y].ship.hit(gameboard[x][y].index)
-            gameboard[x][y] = true
+            gameboard[x][y] = 'hit'
         }
 
         return gameboard[x][y]

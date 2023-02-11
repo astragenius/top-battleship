@@ -11,7 +11,7 @@ const renderGameboard = (() => {
         resetGrid(container)
         const board = gameboard.getBoard()
         const length = board.length
-        console.log(container)
+
         let grid = ''
 
         for (let i = 0; i < length; i++) {
