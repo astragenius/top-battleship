@@ -18,6 +18,20 @@ const renderGameboard = (() => {
             for (let j = 0; j < length; j++) {
                 let status = board[i][j]
 
+                if (status === 'hit') {
+                    if (type === 'human') {
+                        status = 'player__hit'
+                    } else {
+                        status = 'enemy__hit'
+                    }
+                } else if (status === 'miss') {
+                    if (type === 'human') {
+                        status = 'player__miss'
+                    } else {
+                        status = 'enemy__miss'
+                    }
+                }
+
                 if (status === null) {
                     status = ''
                 } else if (status.ship) {
