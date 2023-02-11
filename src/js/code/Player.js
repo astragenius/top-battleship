@@ -1,9 +1,12 @@
 import { createFleet, randomCoords, SHIP_TYPE } from './helpers'
 export const Player = (type) => {
     const playerType = type
+    const playerPoints = 0
     let fleet = createFleet(SHIP_TYPE)
 
     const getType = () => playerType
+    const getPoints = () => playerPoints
+    const addPoints = () => playerPoints++
     const getFleet = () => fleet
     const resetFleet = () => (fleet = createFleet(SHIP_TYPE))
     const attack = (x, y, enemyBoard) => enemyBoard.recieveAttack(x, y)
@@ -17,5 +20,13 @@ export const Player = (type) => {
         }
     }
 
-    return { getType, getFleet, resetFleet, attack, autoAttack }
+    return {
+        getType,
+        getFleet,
+        resetFleet,
+        attack,
+        autoAttack,
+        getPoints,
+        addPoints,
+    }
 }

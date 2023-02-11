@@ -7,6 +7,14 @@ const renderGameboard = (() => {
         container.textContent = ''
     }
 
+    const renderPoints = (player, playerDOMElement) => {
+        if (player.getType() === 'human') {
+            playerDOMElement.textContent = player.getPoints()
+        } else if (player.getType() === 'cpu') {
+            playerDOMElement.textContent = player.getPoints()
+        }
+    }
+
     const renderGrid = (container, gameboard, type) => {
         resetGrid(container)
         const board = gameboard.getBoard()
@@ -49,7 +57,7 @@ const renderGameboard = (() => {
         container.innerHTML = grid
     }
 
-    return { renderGrid }
+    return { renderGrid, renderPoints }
 })()
 
 export default renderGameboard

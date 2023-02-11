@@ -82,6 +82,8 @@ const GameHandler = () => {
         addEventsToGrid()
         autoPlace()
         renderGrids()
+        renderGameboard.renderPoints(player1, DOMelements.playerPoints)
+        renderGameboard.renderPoints(EnemyPlayer, DOMelements.enemyPoints)
     }
 
     return {
