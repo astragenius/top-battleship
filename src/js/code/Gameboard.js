@@ -19,23 +19,23 @@ export const GameBoard = () => {
         return gameboard[x][y]
     }
     const coordAdjust = (x0, y0, i, position) => {
-        let x = x0 + i
-        let y = y0
+        let x = x0
+        let y = y0 + i
 
         if (position === 'vertical') {
-            x = x0
-            y = y0 + i
+            x = x0 + i
+            y = y0
         }
 
         return [x, y]
     }
-    const checkPos = (lenght, x0, y0, position) => {
-        let list = []
+    const checkPos = (length, x0, y0, position) => {
+        const list = []
 
-        for (let i = 0; i < lenght; i++) {
+        for (let i = 0; i < length; i++) {
             const [x, y] = coordAdjust(x0, y0, i, position)
 
-            if (x < 10 && y < 10) {
+            if (y < 10 && x < 10) {
                 list.push(gameboard[x][y])
             } else {
                 return false
@@ -48,8 +48,8 @@ export const GameBoard = () => {
     const placeShip = (ship, x0, y0) => {
         //console.log(ship)
         const position = ship.getPosition()
-        const validPos = checkPos(ship.lenght, x0, y0, position)
-        //console.log(validPos)
+        const validPos = checkPos(ship.length, x0, y0, position)
+
         if (validPos) {
             for (let i = 0; i < ship.length; i++) {
                 const [x, y] = coordAdjust(x0, y0, i, position)

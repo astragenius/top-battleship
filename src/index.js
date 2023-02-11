@@ -8,4 +8,4 @@ import GameHandler from './js/code/Game'
 
 const game = GameHandler()
 
-game.startGame()
+game.gameInit()

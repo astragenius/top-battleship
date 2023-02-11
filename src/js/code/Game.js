@@ -10,6 +10,11 @@ const GameHandler = () => {
     const player1Board = GameBoard()
     const enemyBoard = GameBoard()
 
+    const gameInit = () => {
+        startGame()
+        addEventsToBtn()
+    }
+
     const resetGame = () => {
         player1.resetFleet()
         EnemyPlayer.resetFleet()
@@ -31,6 +36,10 @@ const GameHandler = () => {
     }
     const addEventsToGrid = () => {
         DOMelements.enemyGrid.addEventListener('click', attackPlayer)
+    }
+    const addEventsToBtn = () => {
+        DOMelements.btnNew.addEventListener('click', startGame)
+        DOMelements.btnReset.addEventListener('click', startGame)
     }
 
     const attackPlayer = (e) => {
@@ -63,18 +72,20 @@ const GameHandler = () => {
     const autoPlace = () => {
         player1Board.resetGameboard()
         enemyBoard.resetGameboard()
+
         player1Board.autoPlaceAllShips(player1.getFleet())
         enemyBoard.autoPlaceAllShips(EnemyPlayer.getFleet())
     }
 
     const startGame = () => {
-        addEventsToGrid()
         resetGame()
+        addEventsToGrid()
         autoPlace()
         renderGrids()
     }
 
     return {
+        gameInit,
         startGame,
         autoPlace,
         renderGrids,
