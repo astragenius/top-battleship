@@ -20,6 +20,8 @@ const GameHandler = () => {
         EnemyPlayer.resetFleet()
         player1Board.resetGameboard()
         enemyBoard.resetGameboard()
+        player1.resetPoints()
+        EnemyPlayer.resetPoints()
     }
 
     const renderGrids = () => {
@@ -57,9 +59,16 @@ const GameHandler = () => {
             let winner = ''
             if (player1Board.checkShipsSunk()) {
                 console.log('CPU Winns')
+                EnemyPlayer.addPoints()
+                renderGameboard.renderPoints(
+                    EnemyPlayer,
+                    DOMelements.enemyPoints
+                )
                 winner = 'Enemy winns the game'
             } else if (enemyBoard.checkShipsSunk()) {
                 console.log('player winns')
+                player1.addPoints()
+                renderGameboard.renderPoints(player1, DOMelements.playerPoints)
                 winner = 'Player Winns the game'
             }
 
