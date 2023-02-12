@@ -33,7 +33,7 @@
 }
 
 .modal__title {
-    font-size: 3rem;
+    font-size: clamp(1.19rem, calc(0.40rem + 3.35vw), 3.00rem);
     text-transform: uppercase;
     font-weight: bold;
     -webkit-margin-after: 1em;
@@ -42,11 +42,13 @@
 .modal__btn__container {
 
     display: grid;
+    place-items: center;
     gap: 0.5em;
-    width: 15vw;
+    width: 50vw;
 
     button{
 
         padding-block: 0.8em;
+        max-width: 200px;
     }
 }
