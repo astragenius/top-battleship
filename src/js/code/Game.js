@@ -20,8 +20,6 @@ const GameHandler = () => {
         EnemyPlayer.resetFleet()
         player1Board.resetGameboard()
         enemyBoard.resetGameboard()
-        player1.resetPoints()
-        EnemyPlayer.resetPoints()
     }
 
     const renderGrids = () => {
@@ -41,7 +39,19 @@ const GameHandler = () => {
     }
     const addEventsToBtn = () => {
         DOMelements.btnNew.addEventListener('click', startGame)
-        DOMelements.btnReset.addEventListener('click', startGame)
+        DOMelements.btnReset.addEventListener('click', () => {
+            startGame()
+            player1.resetPoints()
+            EnemyPlayer.resetPoints()
+        })
+        DOMelements.btnNewModal.addEventListener('click', () => {
+            startGame()
+            renderGameboard.toggleModal(DOMelements.modal)
+        })
+        DOMelements.btnResetModal.addEventListener('click', () => {
+            resetGame()
+            renderGameboard.toggleModal(DOMelements.modal)
+        })
     }
 
     const attackPlayer = (e) => {
@@ -56,7 +66,6 @@ const GameHandler = () => {
             renderGrids()
         }
         if (player1Board.checkShipsSunk() || enemyBoard.checkShipsSunk()) {
-            let winner = ''
             if (player1Board.checkShipsSunk()) {
                 console.log('CPU Winns')
                 EnemyPlayer.addPoints()
@@ -64,12 +73,18 @@ const GameHandler = () => {
                     EnemyPlayer,
                     DOMelements.enemyPoints
                 )
-                winner = 'Enemy winns the game'
+                renderGameboard.renderModal(
+                    'The Enemy wins the Game',
+                    DOMelements.modal
+                )
             } else if (enemyBoard.checkShipsSunk()) {
                 console.log('player winns')
                 player1.addPoints()
                 renderGameboard.renderPoints(player1, DOMelements.playerPoints)
-                winner = 'Player Winns the game'
+                renderGameboard.renderModal(
+                    'Player wins the Game',
+                    DOMelements.modal
+                )
             }
 
             DOMelements.enemyGrid.removeEventListener('click', attackPlayer)

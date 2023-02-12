@@ -15,6 +15,20 @@ const renderGameboard = (() => {
         }
     }
 
+    const toggleModal = (modal) => {
+        if (modal.getAttribute('data-open') === 'false') {
+            console.log('test')
+            modal.setAttribute('data-open', true)
+        } else {
+            modal.setAttribute('data-open', false)
+        }
+    }
+
+    const renderModal = (winner, modal) => {
+        modal.querySelector('.modal__title').textContent = winner
+        toggleModal(modal)
+    }
+
     const renderGrid = (container, gameboard, type) => {
         resetGrid(container)
         const board = gameboard.getBoard()
@@ -57,7 +71,7 @@ const renderGameboard = (() => {
         container.innerHTML = grid
     }
 
-    return { renderGrid, renderPoints }
+    return { renderGrid, renderPoints, renderModal, toggleModal }
 })()
 
 export default renderGameboard
