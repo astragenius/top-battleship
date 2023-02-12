@@ -23,9 +23,9 @@
     The Odin Project Assignment
     <br />
     <br />
-    <a href="/">View Demo</a>
+    <a href="https://top-battleship.vercel.app/">View Demo</a>
     ·
-    <a href="https://www.theodinproject.com/lessons/node-path-javascript-weather-app">Link to the Assignment</a>
+    <a href="https://www.theodinproject.com/lessons/node-path-javascript-battleship">Link to the Assignment</a>
   </p>
 </div>
 
